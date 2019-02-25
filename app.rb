@@ -7,7 +7,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks' do
-    "http://www.makersacademy.com, http://www.destroyallsoftware.com, http://www.google.com"
+    @bookmarks = ["http://www.makersacademy.com", "http://www.destroyallsoftware.com", "http://www.google.com"]
+    erb :'bookmarks/index'
   end
 
 run! if app_file == $0
