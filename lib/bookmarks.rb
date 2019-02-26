@@ -6,12 +6,14 @@ class Bookmarks
   def initialize
   end
 
-#use pg to to connect to PostgreSQL bookmark manager
-#retireve all bookmarks from bookmarks table
-#extract url from database response
   def self.all
+    #installing PG made a PG object available in Ruby
+    #connects to PG passing in the database name as the argument, so that an object(connection) that includes the database is returned
     connection = PG.connect(dbname: 'bookmark_manager')
+    #connection object will receive a query in the form of string for exec method
+    #calls exec on the database object with query string as the argument
     result = connection.exec("SELECT*FROM bookmarks;")
+    #displays the url of each bookmark.
     result.map {|bookmark| bookmark['url']}
   end
 
