@@ -6,6 +6,7 @@ ruby '2.6.0'
 group :development, :test do
   gem "rubocop", require: false
   gem "sinatra"
+  gem "pg"
   gem "capybara", require: false, group: :test
 	gem "rspec", require: false, group: :test
 	gem "simplecov", require: false, group: :test
